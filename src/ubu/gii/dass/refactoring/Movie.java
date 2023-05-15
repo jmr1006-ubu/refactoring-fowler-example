@@ -20,17 +20,8 @@ public abstract class Movie {
 	protected int _priceCode;
 	protected int _daysRented;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title) {
 		_title = title;
-		_priceCode = priceCode;
-	}
-
-	public int getPriceCode() {
-		return _priceCode;
-	}
-
-	public void setPriceCode(int arg) {
-		_priceCode = arg;
 	}
 
 	public String getTitle() {
@@ -42,7 +33,7 @@ public abstract class Movie {
 	}
 
 	double getCharge(Rental rental, double thisAmount, Customer customer) {
-		switch (rental.getMovie().getPriceCode()) {
+		switch (rental.getMovie()._priceCode) {
 		case Movie.REGULAR:
 			thisAmount = customer.getChargeRegular(thisAmount, rental);
 			break;
