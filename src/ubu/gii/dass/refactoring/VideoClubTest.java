@@ -55,5 +55,23 @@ public class VideoClubTest {
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
 
 	}
+	
+	@Test
+	public void testHtmlStatement() {
+	    Rental r1 = new Rental(m11, 5);
+	    Rental r2 = new Rental(m0, 1);
+	    Rental r3 = new Rental(m2, 10);
+
+	    c1.addRental(r1);
+	    c1.addRental(r2);
+	    c1.addRental(r3);
+
+	    String salida = c1.htmlStatement();
+
+	    String salidaEsperada = "<h1>Rental Record for <em>Manuel</em></h1><br/><p>Sky Captain: 15.0<br/>Accion Mutante: 2.0<br/>Hermano Oso: 12.0<br/></p><p><b>Amount owed is <em>29.0</em></b><br/><b>You earned <em>4</em> frequent renter points</b></p>";
+
+	    assertEquals("HtmlStatement incorrecto", salidaEsperada, salida);
+	}
+
 
 }

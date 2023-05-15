@@ -53,4 +53,27 @@ public class Customer {
 				+ " frequent renter points";
 		return result;
 	}
+	
+	public String htmlStatement() {
+	    double totalAmount = 0;
+	    int frequentRenterPoints = 0;
+	    Iterator<Rental> rentals = _rentals.iterator();
+	    String result = "<h1>Rental Record for <em>" + getName() + "</em></h1><br/><p>";
+	    while (rentals.hasNext()) {
+	        double thisAmount = 0;
+	        Rental rental = rentals.next();
+
+	        thisAmount = rental._movie.getCharge(rental.getDaysRented());
+
+	        frequentRenterPoints += rental._movie.getFrequentPoints(rental.getDaysRented());
+
+	        result += rental.getMovie().getTitle() + ": " + String.valueOf(thisAmount) + "<br/>";
+	        totalAmount += thisAmount;
+	    }
+	    result += "</p><p><b>Amount owed is <em>" + String.valueOf(totalAmount) + "</em></b><br/>";
+	    result += "<b>You earned <em>" + String.valueOf(frequentRenterPoints) + "</em> frequent renter points</b></p>";
+	    return result;
+	}
+
+
 }
