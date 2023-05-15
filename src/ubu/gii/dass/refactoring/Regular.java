@@ -7,4 +7,8 @@ public class Regular extends Movie {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getFrequentPoints(int daysRented) {
+		return 1;
+	}
+
 }

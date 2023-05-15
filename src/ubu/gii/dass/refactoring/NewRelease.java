@@ -7,4 +7,8 @@ public class NewRelease extends Movie {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getFrequentPoints(int daysRented) {
+		return (daysRented > 1) ? 2 : 1;
+	}
+
 }
