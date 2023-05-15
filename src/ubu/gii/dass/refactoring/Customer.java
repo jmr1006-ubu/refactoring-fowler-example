@@ -39,9 +39,9 @@ public class Customer {
 			double thisAmount = 0;
 			Rental rental = rentals.next();
 			// determine amounts for each line
-			thisAmount = rental._movie.getCharge(rental, thisAmount, this);
+			thisAmount = rental._movie.getCharge(rental.getDaysRented());
 			
-			frequentRenterPoints = rental._movie.getFrequentPoints(rental._movie.getDaysRented());
+			frequentRenterPoints += rental._movie.getFrequentPoints(rental.getDaysRented());
 			// show figures for this rental
 			result += "\t" + rental.getMovie().getTitle() + "\t"
 					+ String.valueOf(thisAmount) + "\n";
@@ -52,24 +52,5 @@ public class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints)
 				+ " frequent renter points";
 		return result;
-	}
-
-	double getChargeChildren(double thisAmount, Rental rental) {
-		thisAmount += 1.5;
-		if (rental._movie.getDaysRented() > 3)
-			thisAmount += (rental._movie.getDaysRented() - 3) * 1.5;
-		return thisAmount;
-	}
-
-	double getChargeNewRelease(double thisAmount, Rental rental) {
-		thisAmount += rental._movie.getDaysRented() * 3;
-		return thisAmount;
-	}
-
-	double getChargeRegular(double thisAmount, Rental rental) {
-		thisAmount += 2;
-		if (rental._movie.getDaysRented() > 2)
-			thisAmount += (rental._movie.getDaysRented() - 2) * 1.5;
-		return thisAmount;
 	}
 }
