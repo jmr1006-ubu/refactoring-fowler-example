@@ -56,13 +56,14 @@ public class Movie {
 		return thisAmount;
 	}
 
-	public int getFrequentPoints(Rental rental, int frequentRenterPoints) {
+	public int getFrequentPoints(int daysRented) {
 		// add frequent renter points
-		frequentRenterPoints++;
+		int frequentRenterPoints = 1;
 		// add bonus for a two day new release rental
-		if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-				&& getDaysRented() > 1)
+		if ((getPriceCode() == Movie.NEW_RELEASE)
+				&& daysRented > 1)
 			frequentRenterPoints++;
+		
 		return frequentRenterPoints;
 	}
 }
