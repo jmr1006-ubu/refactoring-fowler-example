@@ -17,7 +17,8 @@ public class Movie {
 	public static final int NEW_RELEASE = 1;
 
 	private String _title;
-	private int _priceCode;
+	protected int _priceCode;
+	protected int _daysRented;
 
 	public Movie(String title, int priceCode) {
 		_title = title;
@@ -34,5 +35,9 @@ public class Movie {
 
 	public String getTitle() {
 		return _title;
+	}
+
+	public int getDaysRented() {
+		return _daysRented;
 	}
 }
