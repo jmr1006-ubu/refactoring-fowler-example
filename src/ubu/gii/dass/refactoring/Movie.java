@@ -40,4 +40,19 @@ public class Movie {
 	public int getDaysRented() {
 		return _daysRented;
 	}
+
+	double getCharge(Rental rental, double thisAmount, Customer customer) {
+		switch (rental.getMovie().getPriceCode()) {
+		case Movie.REGULAR:
+			thisAmount = customer.getChargeRegular(thisAmount, rental);
+			break;
+		case Movie.NEW_RELEASE:
+			thisAmount = customer.getChargeNewRelease(thisAmount, rental);
+			break;
+		case Movie.CHILDRENS:
+			thisAmount = customer.getChargeChildren(thisAmount, rental);
+			break;
+		}
+		return thisAmount;
+	}
 }
