@@ -20,7 +20,7 @@ public class Rental {
 		return _movie;
 	}
 
-	public int updateFrequenRenterPoints(int frequentRenterPoints) {
+	public int getFrequentPoints(int frequentRenterPoints) {
 		// add frequent renter points
 		frequentRenterPoints++;
 		// add bonus for a two day new release rental
