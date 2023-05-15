@@ -68,7 +68,7 @@ public class Customer {
 		return result;
 	}
 
-	private int updateFrequenRenterPoints(int frequentRenterPoints, Rental rental) {
+	public int updateFrequenRenterPoints(int frequentRenterPoints, Rental rental) {
 		// add frequent renter points
 		frequentRenterPoints++;
 		// add bonus for a two day new release rental
